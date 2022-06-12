@@ -20,8 +20,8 @@ CREATE DATABASE IF NOT EXISTS `corestore` /*!40100 DEFAULT CHARACTER SET utf8mb4
 USE `corestore`;
 
 -- Dumping structure for table corestore.cliente
-CREATE TABLE IF NOT EXISTS `cliente` (
-  `idCliente` int(5) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `idUsuario` int(5) NOT NULL AUTO_INCREMENT,
   `email` varchar(60) NOT NULL,
   `senha` varchar(6) NOT NULL,
   `nome` varchar(15) NOT NULL,
@@ -31,8 +31,8 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `idade` int(2) NOT NULL,
   `telefone` varchar(11) NOT NULL,
   `cep` varchar(8) NOT NULL,
-  `admin` enum('0','1') NOT NULL DEFAULT '0',
-  PRIMARY KEY (`idCliente`)
+  `admin` int(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`idUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Data exporting was unselected.
@@ -44,7 +44,8 @@ CREATE TABLE IF NOT EXISTS `fornecedor` (
   `razaoSocial` varchar(30) NOT NULL,
   `nomeFantasia` varchar(25) DEFAULT NULL,
   `endereco` varchar(30) NOT NULL,
-  `telefone` int(11) NOT NULL,
+  `telefone` varchar(11) NOT NULL,
+  `cep` varchar(11) NOT NULL,
   `codigoBanco` int(3) NOT NULL,
   `agencia` int(4) NOT NULL,
   `digitoAgencia` int(1) DEFAULT NULL,
